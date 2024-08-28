@@ -1,0 +1,76 @@
+    1  docker run hello-world
+    2  sudo groupadd docker
+    3  sudo usermod -aG docker $USER
+    4  newgrp docker
+    5  docker run hello-world
+    6  sudo docker run hello-world
+    7  sudo apt-get update
+    8  sudo apt-get install ca-certificates curl
+    9  sudo install -m 0755 -d /etc/apt/keyrings
+   10  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+   11  sudo chmod a+r /etc/apt/keyrings/docker.asc
+   12  echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+   13    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   14  sudo apt-get update
+   15  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   16  sudo docker run hello-world
+   17  newgrp docker
+   18  sudo docker run hello-world
+   19  sudo docker run --help
+   20  docker run hello-world
+   21  mkfile commands.txt
+   22  ssh-keygen
+   23  ssh-keygen -t rsa
+   24  ls .ssh/
+   25  cat .ssh/id_rsa.pub
+   26  git
+   27  sudo apt install git
+   28  mkdir Projects
+   29  cd Projects/
+   30  git clone git@github.com:DmitryChukhnenko/php_lesson_6.git
+   31  ls
+   32  cd php_lesson_6/
+   33  ls
+   34  ls -la
+   35  git status
+   36  git add   .
+   37  cd .docker/app
+   38  cd docker/app
+   39  cd Projects/php_lesson_6/.docker/app
+   40  chmod +x
+   41  chmod +x docker-entrypoint.sh Dockerfile
+   42  chmod +x docker-entrypoint.sh
+   43  ls -la docker-entrypoint.sh
+   44  cd ../..
+   45  docker compose build
+   46  docker compose up
+   47  docker compose build
+   48  docker compose up
+   49  docker compose build
+   50  docker compose up
+   51  ls -la app
+   52  ls -la
+   53  sudo chown dmitry:dmitry app
+   54  ls -la
+   55  mkdir app/public
+   56  nano app/public/index.php
+   57  cat app/public/index.php
+   58  docker compose up
+   59  docker compose build
+   60  docker compose up
+   61  docker compose build
+   62  docker compose up
+   63  docker compose build
+   64  docker compose up
+   65  git status
+   66  git checkout -b base
+   67  git status
+   68  git add .
+   69  git status
+   70  git commit . -m "base Base docker compose containers app and webserver"
+   71  git config --global user.email "DmitryChukhnenko@yandex.ru"
+   72  git config --global user.name "Dmitry"
+   73  git commit . -m "base Base docker compose containers app and webserver"
+   74  git push origin base
+   75  history | less
+   76  history > history.txt
