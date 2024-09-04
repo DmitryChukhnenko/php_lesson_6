@@ -8,14 +8,7 @@ services:
             dockerfile: .docker/app/Dockerfile
         working_dir: /app
         volumes:
-            - ./app:/app
-        environment:
-            DATABASE_USERNAME: db_user
-            DATABASE_PASSWORD: db_pass
-            DATABASE_DB: app
-            DATABASE_HOST: db
-            DATABASE_PORT: 5432
-            DATABASE_CONNECTION: pgsql
+            - ./app:/app        
 
     webserver:
         container_name: php_lesson_6_webserver
