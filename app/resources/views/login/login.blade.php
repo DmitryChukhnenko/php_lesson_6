@@ -30,5 +30,6 @@
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            <button onclick="{{route('login.forgotPassword')}}"></button>
       </div>
 @endsection

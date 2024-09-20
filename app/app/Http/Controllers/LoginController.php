@@ -27,4 +27,8 @@ class LoginController extends Controller
             'email' => 'Email of password incorrect.'
         ])->onlyInput('email');
     }
+
+    public function forgotPassword(Request $request) {
+        return redirect()->route('changepassword');
+    }
 }

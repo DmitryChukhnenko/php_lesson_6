@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ChangePasswordController;
 
 Route::get('/', function () {
     return view('main', ['phone' => config('top.phone'), 'menu' => config('top.menu')]);
@@ -27,3 +28,6 @@ Route::post('/registration', [RegistrationController::class, 'store'])->name('re
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'post'])->name('login.post');
+
+Route::get('/changepassword', [ChangePasswordController::class, 'index'])->name('login');
+Route::post('/changepassword', [ChangePasswordController::class, 'post'])->name('login.post');
