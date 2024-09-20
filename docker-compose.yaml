@@ -8,7 +8,9 @@ services:
             dockerfile: .docker/app/Dockerfile
         working_dir: /app
         volumes:
-            - ./app:/app        
+            - ./app:/app       
+        env_file:
+            ./app/.env 
 
     webserver:
         container_name: php_lesson_6_webserver
@@ -41,6 +43,17 @@ services:
         command: 'npm start'
         ports:
             - '8082:3000' 
+
+    cron:
+        container_name: php_lesson_6_cron
+        build:
+            context: .
+            dockerfile: .docker/app/Dockerfile.cron
+        working_dir: /app
+        volumes:
+            - ./app:/app       
+        env_file:
+            ./app/.env 
 
 volumes:
     db_data:
