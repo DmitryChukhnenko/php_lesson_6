@@ -2,7 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\TestJob;
 use Illuminate\Console\Command;
+use App\Models\User;
+use Mail;
+use DateTime;
 
 class SendMailCommand extends Command
 {
@@ -11,7 +15,7 @@ class SendMailCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'app:send-mail-command';
+    protected $signature = 'app:send-mail-command {user_id}';
 
     /**
      * The console command description.
@@ -25,6 +29,26 @@ class SendMailCommand extends Command
      */
     public function handle()
     {
-        echo 'Hello!';
+        $userId = $this->argument('user_id');
+        $user = User::find($userId);
+
+        if ($user) {
+            $this->line("Hello $user->name!");
+
+            Mail::send(
+                'mail.mail', ['name' => $user->name],
+                function ($message) use($user) {
+                    $message
+                    ->to($user->email)
+                    ->subject('Hello test')
+                    ->from('top@academy.ru');
+                }
+            );
+        }
+        else {
+            $this->line("No such user");
+        }
+
+        TestJob::dispatch((new DateTime())->format('c'), $user);
     }
 }

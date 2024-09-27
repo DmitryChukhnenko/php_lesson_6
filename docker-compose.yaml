@@ -55,6 +55,16 @@ services:
         env_file:
             ./app/.env 
 
+    mail:
+        container_name: php_lesson_6_mail
+        image: eaudeweb/mailtrap
+        ports:
+            - "8090:80"
+        environment:
+            MT_USER: user
+            MT_PASSWD: password
+            MT_SIZE_LIMIT: 0
+
 volumes:
     db_data:
 
